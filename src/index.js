@@ -1,1 +1,6 @@
-console.log('Testing')
+import initialisePage from './page-setup';
+
+
+initialisePage();
+
+

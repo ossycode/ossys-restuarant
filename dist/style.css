@@ -1,0 +1,130 @@
+@font-face {
+    font-family: 'brandonFontMed';
+    src: url(../dist/assets/fonts/brand_ssv/Brandon_med.otf);
+}
+@font-face {
+    font-family: 'lydianFont1';
+    src: url(../dist/assets/fonts/lydian/lydian\ bold\ bt.ttf);
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+.content{
+display: grid;
+grid-template-rows: auto 1fr auto;
+}
+
+/* header */
+.header{
+    position: fixed;
+    width: 100vw;
+    /* grid-row: 1/3; */
+    background-color: rgba(0,0,0,0.8);
+    color: white;  
+    align-content: center;
+    justify-content: center; 
+}
+
+.nav{
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    padding: 15px;
+}
+
+.logo{
+    margin: 10px 0 0 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    font-family: lydianFont1;
+}
+svg{
+    fill: white;
+}
+
+.navItems{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding: 20px;
+}
+.navUL{
+    display: flex;
+    gap: 70px;
+    letter-spacing: 0.96px;
+}
+
+.navli{
+    cursor: pointer;
+    position: relative;
+    font-family: brandonFontMed;
+    font-size: 1.1rem;
+}
+  .navli:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    width: 0px;
+    height: 2px;
+    background: white;
+    transition: all 0.5s;
+  }
+  
+  .navli:hover:after {
+    width: 100%;
+    left: 0;
+  }
+
+.navli:not(:last-child)::before{
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: -30px;
+    width: 6px;
+    height: 6px;
+    border-radius: 100%;
+    background: white 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+.hambugerMenu{
+float: right;
+margin: 5px 20px 0 0;
+cursor: pointer;
+}
+
+.aLink{
+    float: right;
+}
+
+
+
+
+/* main */
+.main{
+    grid-row: 1/5;
+    display: grid;
+}
+
+.firstMain{
+    background-image: url(../dist/assets/images/image1.jpg);
+    height: 100vh;
+}
+
+
+
+/* footer */
+.footer{
+    background-color: #fed7aa;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* height: 2.5rem;    */
+}
