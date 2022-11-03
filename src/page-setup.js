@@ -68,14 +68,197 @@ function createMain() {
     const firstMain = document.createElement('div')
     firstMain.classList.add('firstMain')
     
+    //Create the slider
+    const wrapper = document.createElement('div')
+    wrapper.classList.add('wrapper')
+
+    const slider1 = document.createElement('img')
+    slider1.setAttribute('src', '../dist/assets/images/image1.jpg')
+
+    const slider2 = document.createElement('img')
+    slider2.setAttribute('src', '../dist/assets/images/Halloween-Pancake_2-3.jpg')
+
+    const slider3 = document.createElement('img')
+    slider3.setAttribute('src', '../dist/assets/images/image1.jpg')
+
+    const slider4 = document.createElement('img')
+    slider4.setAttribute('src', '../dist/assets/images/Halloween-Pancake_2-3.jpg')
+
+    // Create the information
+    const firstMainInfo = document.createElement('div')
+    firstMainInfo.classList.add('firstMainInfo')
+    firstMainInfo.innerHTML = " <h1>HERE'S TO GOOD FRIENDS, GOOD FOOD & GOOD TIMES</h1>" 
+    firstMain.appendChild(firstMainInfo)
+
+    //Create the form to book a table on the main screen
+
+    const people = ['1 People', '2 People', '3 People', '4 People', '5 People', '6 People',
+    '7 People', '8 People','9 People','10 People','11 People','12 People','13 People','14 People',
+    '15 People']
+
+    const bookTable =  document.createElement('div');
+    bookTable.classList.add('bookTable')
+    bookTable.innerHTML = "<h2>Book a table</h2>"
+
+    const bookTableForm =  document.createElement('form');
+    bookTableForm.classList.add('bookTableForm')
+    bookTableForm.setAttribute('method',"post");
+    bookTableForm.setAttribute('action',"submit.php");
+
+    const locationInput = document.createElement("input");
+    locationInput.classList.add('locationInput')
+    locationInput.setAttribute('type',"text");
+    locationInput.setAttribute('name',"location")
+    locationInput.setAttribute('placeholder',"Enter location")
+
+    const selectList = document.createElement("select");
+    selectList.classList.add('mySelect')
     
+
+    //Create and append the options
+    for (let i = 0; i < people.length; i++) {
+        let option = document.createElement("option");
+        option.value = people[i];
+        option.text = people[i];
+        selectList.appendChild(option);
+    }
+
+    const dateInput = document.createElement("input");
+    dateInput.classList.add('dateInput')
+    dateInput.setAttribute('type',"date");
+    dateInput.setAttribute('name',"date")
+    
+    const timeInput = document.createElement("input");
+    timeInput.classList.add('timeInput')
+    timeInput.setAttribute('type',"time");
+    timeInput.setAttribute('name',"time")
+
+    const bookTableFormBtn = document.createElement("input");
+    bookTableFormBtn.classList.add('formBtn')
+    bookTableFormBtn.setAttribute('type',"submit");
+    bookTableFormBtn.setAttribute('value',"GO");
+
+
+    bookTableForm.appendChild(locationInput);
+    bookTableForm.appendChild(selectList);
+    bookTableForm.appendChild(dateInput);
+    bookTableForm.appendChild(timeInput);
+    bookTableForm.appendChild(bookTableFormBtn);
+    bookTable.appendChild(bookTableForm)
+    firstMain.appendChild(bookTable)
+
+
+    wrapper.appendChild(slider1)
+    wrapper.appendChild(slider2)
+    wrapper.appendChild(slider3)
+    wrapper.appendChild(slider4)
+    firstMain.appendChild(wrapper)
     main.appendChild(firstMain)
+
+
+    const whatOn = document.createElement("div");
+    whatOn.classList.add('whatOn')
+    whatOn.innerHTML = "<h1>What's on at Ossy's</h1>"
+    main.appendChild(whatOn)
+
+    const whatOnInfo1 = document.createElement("div");
+    whatOnInfo1.classList.add('whatOnInfo1')
+    
+
+    const whatOnInfo1TopLeft = document.createElement("div");
+    whatOnInfo1TopLeft.classList.add('whatOnInfo1TopLeft')
+    whatOnInfo1.appendChild(whatOnInfo1TopLeft)
+
+    const whatOnInfo1TopRight = document.createElement("div");
+    whatOnInfo1TopRight.classList.add('whatOnInfo1TopRight')
+    whatOnInfo1.appendChild(whatOnInfo1TopRight)
+    whatOnInfo1TopRight.innerHTML = "<div> <h2>Christmas at Ossy's</h2><p> Get Christmas Party Ready with Ossy's! </p> <button type='submit'>Find our more </button></div>";
+
+
+    const whatOnInfo1DownLeft = document.createElement("div");
+    whatOnInfo1DownLeft.classList.add('whatOnInfo1DownLeft')
+    whatOnInfo1.appendChild(whatOnInfo1DownLeft)
+    whatOnInfo1DownLeft.innerHTML = "<div> <h2>Seasonal Set Menu</h2><p> Sometimes being spoilt for choice makes it hard to make a choice at all. Fortunately our <br> carefully selected set menu makes it easier</p> <button type='submit'>Find our more </button></div>";
+
+
+    const whatOnInfo1DownRight = document.createElement("div");
+    whatOnInfo1DownRight.classList.add('whatOnInfo1DownRight')
+    whatOnInfo1.appendChild(whatOnInfo1DownRight)
+
+    main.appendChild(whatOnInfo1)
     return main;
 };
 
 function createFooter() {
     const footer = document.createElement('div')
     footer.classList.add('footer')
+
+    const footerInfo = document.createElement('div')
+
+    const footerLogo = document.createElement('div');
+    footerLogo.classList.add('footerLogo')
+    footerLogo.textContent  = "Ossy's";
+
+    const footerLogoUL1 = document.createElement('ul');
+    footerLogoUL1.classList.add('footerLogoUL1')
+
+    const Ul1li1 = document.createElement('li');
+    Ul1li1.textContent  = "Book a table";
+    footerLogoUL1.appendChild(Ul1li1)
+
+    const Ul1li2 = document.createElement('li');
+    Ul1li2.textContent  = "Menus";
+    footerLogoUL1.appendChild(Ul1li2)
+
+    const Ul1li3 = document.createElement('li');
+    Ul1li3.textContent  = "Private dinning";
+    footerLogoUL1.appendChild(Ul1li3)
+
+    const Ul1li4 = document.createElement('li');
+    Ul1li4.textContent  = "Locations";
+    footerLogoUL1.appendChild(Ul1li4)
+    
+
+    const footerLogoUL2 = document.createElement('ul');
+    footerLogoUL2.classList.add('footerLogoUL2')
+
+    const Ul2li1 = document.createElement('li');
+    Ul1li2.textContent  = "Contact us";
+    footerLogoUL2.appendChild(Ul2li1)
+
+    const Ul2li2 = document.createElement('li');
+    Ul1li3.textContent  = "FAQs";
+    footerLogoUL2.appendChild(Ul2li2)
+
+    const Ul2li3 = document.createElement('li');
+    Ul2li3.textContent  = "Join the team";
+    footerLogoUL2.appendChild(Ul2li3)
+
+    const Ul2li4 = document.createElement('li');
+    Ul2li4.textContent  = "Terms & Conditions";
+    footerLogoUL2.appendChild(Ul2li4)
+    
+
+    const footerSocial = document.createElement('div');
+    footerSocial.classList.add('footerSocial')
+    const footerSocialh2 = document.createElement('h2');
+    footerSocialh2.textContent  = "Follow us";
+    footerSocial.appendChild(footerSocialh2)
+    
+
+    const footerNewsletter = document.createElement('div');
+    footerNewsletter.classList.add('footerNewsletter')
+    const footerNewsletterh2 = document.createElement('h2');
+    footerNewsletterh2.textContent  = "Newsletter";
+    footerNewsletter.appendChild(footerNewsletterh2)
+    const footerNewsletterBtn = document.createElement('button');
+    button.setAttribute('type', 'submit')
+    button.setAttribute('value', 'Sign up')
+
+   
+    footerInfo.appendChild(footerLogo)
+
+    footer.appendChild(footerInfo)
     return footer;
 };
 
