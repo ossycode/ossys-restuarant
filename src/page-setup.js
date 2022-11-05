@@ -10,6 +10,7 @@ function createHeader() {
 
     const headerLogo = document.createElement('div');
     headerLogo.classList.add('logo')
+    headerLogo.id = 'headerLogo';
     headerLogo.textContent  = "Ossy's";
     
 
@@ -22,25 +23,30 @@ function createHeader() {
 
     const navBook = document.createElement('li');
     navBook.classList.add('navli')
+    navBook.id = 'navBook' ;
     navBook.textContent = 'Book a table'
 
     const navMenu = document.createElement('li');
-    navMenu.classList.add('navli')
+    navMenu.classList.add('navli');
+    navMenu.id = 'navMenu' ;
     navMenu.textContent = 'Menus'
 
 
     const navEvents = document.createElement('li');
     navEvents.classList.add('navli')
+    navEvents.id = 'navEvents' ;
     navEvents.textContent = 'Events & offers'
 
 
     const navContact = document.createElement('li');
     navContact.classList.add('navli')
+    navContact.id = 'navContact' ;
     navContact.textContent = 'Contact'
 
 
     const hambugerMenu = document.createElement('div')
     hambugerMenu.classList.add('hambugerMenu')
+    hambugerMenu.id = 'hambugerMenu'
     const aLink = document.createElement('a')
     aLink.classList.add('aLink')
     const svgImage = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="45" height="50"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>'
@@ -61,9 +67,10 @@ function createHeader() {
 };
 
 
-function createMain() {
+const createMain = () => {
     const main = document.createElement('div')
     main.classList.add('main')
+    main.id = 'main';
 
     const firstMain = document.createElement('div')
     firstMain.classList.add('firstMain')
@@ -194,13 +201,17 @@ function createFooter() {
     footer.classList.add('footer')
 
     const footerInfo = document.createElement('div')
+    footerInfo.classList.add('footerInfo')
 
     const footerLogo = document.createElement('div');
     footerLogo.classList.add('footerLogo')
-    footerLogo.textContent  = "Ossy's";
+    footerLogo.innerHTML  = "<h1>Ossy's</h1>";
 
+    const footerInfoDiv1 = document.createElement('div');
+    footerInfoDiv1.classList.add('footerLogoUL1')
     const footerLogoUL1 = document.createElement('ul');
-    footerLogoUL1.classList.add('footerLogoUL1')
+    footerLogoUL1.classList.add('footerLogoUL')
+    footerInfoDiv1.appendChild(footerLogoUL1)
 
     const Ul1li1 = document.createElement('li');
     Ul1li1.textContent  = "Book a table";
@@ -218,16 +229,18 @@ function createFooter() {
     Ul1li4.textContent  = "Locations";
     footerLogoUL1.appendChild(Ul1li4)
     
-
+    const footerInfoDiv2 = document.createElement('div');
+    footerInfoDiv2.classList.add('footerLogoUL2')
     const footerLogoUL2 = document.createElement('ul');
-    footerLogoUL2.classList.add('footerLogoUL2')
+    footerLogoUL2.classList.add('footerLogoUL')
+    footerInfoDiv2.appendChild(footerLogoUL2)
 
     const Ul2li1 = document.createElement('li');
-    Ul1li2.textContent  = "Contact us";
+    Ul2li1.textContent  = "Contact us";
     footerLogoUL2.appendChild(Ul2li1)
 
     const Ul2li2 = document.createElement('li');
-    Ul1li3.textContent  = "FAQs";
+    Ul2li2.textContent  = "FAQs";
     footerLogoUL2.appendChild(Ul2li2)
 
     const Ul2li3 = document.createElement('li');
@@ -252,21 +265,35 @@ function createFooter() {
     footerNewsletterh2.textContent  = "Newsletter";
     footerNewsletter.appendChild(footerNewsletterh2)
     const footerNewsletterBtn = document.createElement('button');
-    button.setAttribute('type', 'submit')
-    button.setAttribute('value', 'Sign up')
+    footerNewsletterBtn.classList.add('footerNewsletterBtn')
+    footerNewsletterBtn.setAttribute('type', 'submit')
+    footerNewsletterBtn.textContent  = "Sign up";
+    footerNewsletter.appendChild(footerNewsletterBtn)
 
+
+    const footerPtag = document.createElement('p');
+    footerPtag.classList.add('footerPtag')
+    footerPtag.innerHTML = "<p> Website by OssyLab. </p>"
    
     footerInfo.appendChild(footerLogo)
+    footerInfo.appendChild(footerInfoDiv1)
+    footerInfo.appendChild(footerInfoDiv2)
+    footerInfo.appendChild(footerSocial)
+    footerInfo.appendChild(footerNewsletter)
 
     footer.appendChild(footerInfo)
+    footer.appendChild(footerPtag)
     return footer;
 };
 
 
-function initialisePage() {
+const initialisePage = () => {
     content.appendChild(createHeader());
     content.appendChild(createMain());
     content.appendChild(createFooter());
 }
 
-export default initialisePage;
+export  {
+    initialisePage, 
+    createMain
+};
